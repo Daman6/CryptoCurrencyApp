@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @Composable
 fun CoinListScreen(
-//    navController: NavController,
+    navController: NavController,
     viewModel: CoinListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
@@ -34,25 +34,25 @@ fun CoinListScreen(
                 CoinListItem(
                     coin = coins,
                     onItemClick = {
-//                        navController.navigate(Screen.CoinDetailScreen.route + "/${coins.id}")
+                        navController.navigate(Screen.CoinDetailScreen.route + "/${coins.id}")
                 }
                 )
 
             }
         }
-//        if (state.error.isNotBlank()){
-//            Text(
-//                text = state.error,
-//                color = MaterialTheme.colors.error,
-//                textAlign = TextAlign.Center,
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(horizontal = 20.dp)
-//                    .align(Alignment.Center)
-//            )
-//        }
-//        if(state.isLoading){
-//            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-//        }
+        if (state.error.isNotBlank()){
+            Text(
+                text = state.error,
+                color = MaterialTheme.colors.error,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+                    .align(Alignment.Center)
+            )
+        }
+        if(state.isLoading){
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        }
     }
 }

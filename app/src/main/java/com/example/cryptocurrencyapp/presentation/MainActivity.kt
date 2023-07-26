@@ -14,7 +14,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.cryptocurrencyapp.presentation.coin_list.components.CoinListScreen
-import com.example.cryptocurrencyapp.presentation.msn_component.MsnScreen
 import com.example.cryptocurrencyapp.presentation.ui.theme.CryptoCurrencyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,10 +36,9 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = Screen.CoinListScreen.route
                         ){
-//                            CoinListScreen(
-////                                navController = navController
-//                            )
-                            MsnScreen()
+                            CoinListScreen(
+                                navController = navController
+                            )
                         }
                         composable(
                             route = Screen.CoinDetailScreen.route
@@ -48,7 +46,6 @@ class MainActivity : ComponentActivity() {
 //                            CoinListScreen(
 ////                                navController = navController
 //                            )
-                            MsnScreen()
                         }
                     }
                 }
